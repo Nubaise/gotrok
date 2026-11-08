@@ -24,8 +24,9 @@ function sendJson(res, status, payload) {
 }
 function validDateQuery(date) {
   if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new BookingError('Provide a date query parameter in YYYY-MM-DD format.');
-  const parsed = new Date(`${date}T00:00:00`);
-  if (Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== date) throw new BookingError('Provide a real calendar date.');
+  const [year, month, day] = date.split('-').map(Number);
+  const parsed = new Date(Date.UTC(year, month - 1, day));
+  if (parsed.getUTCFullYear() !== year || parsed.getUTCMonth() !== month - 1 || parsed.getUTCDate() !== day) throw new BookingError('Provide a real calendar date.');
   return date;
 }
 

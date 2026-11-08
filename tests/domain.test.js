@@ -50,6 +50,10 @@ test('allows a job to finish exactly at closing', () => {
   const result = validateBookingInput({ ...valid, startTime: '17:57', pages: 1, copies: 1 });
   assert.equal(result.endTime, '18:00');
 });
+test('date validation is timezone-independent for India and other positive offsets', () => {
+  const result = validateBookingInput({ ...valid, date: '2026-11-09' });
+  assert.equal(result.date, '2026-11-09');
+});
 test('interval overlap allows adjacent bookings but rejects intersections', () => {
   assert.equal(intervalsOverlap(480, 490, 490, 500), false);
   assert.equal(intervalsOverlap(480, 491, 490, 500), true);

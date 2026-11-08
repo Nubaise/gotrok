@@ -56,9 +56,10 @@ export function validateBookingInput(input) {
   const printer = PRINTERS.find((item) => item.id === printerId);
   if (!printer) throw new BookingError('Choose a valid printer (P1, P2 or P3).');
   if (typeof input.date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(input.date)) throw new BookingError('Choose a valid booking date.');
-  const parsedDate = new Date(`${input.date}T00:00:00`);
-  if (Number.isNaN(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== input.date) throw new BookingError('Choose a real calendar date.');
-  if (!SHOP.openDays.includes(parsedDate.getDay())) throw new BookingError('The shop is closed on Sundays. Choose Monday to Saturday.');
+  const [year, month, day] = input.date.split('-').map(Number);
+  const parsedDate = new Date(Date.UTC(year, month - 1, day));
+  if (parsedDate.getUTCFullYear() !== year || parsedDate.getUTCMonth() !== month - 1 || parsedDate.getUTCDate() !== day) throw new BookingError('Choose a real calendar date.');
+  if (!SHOP.openDays.includes(parsedDate.getUTCDay())) throw new BookingError('The shop is closed on Sundays. Choose Monday to Saturday.');
   const startMinutes = timeToMinutes(input.startTime);
   const opening = timeToMinutes(SHOP.opens);
   const closing = timeToMinutes(SHOP.closes);
