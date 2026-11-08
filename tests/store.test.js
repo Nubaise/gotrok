@@ -16,6 +16,12 @@ test('loads the nine sample bookings from the assessment sign-up sheet', () => {
   assert.equal(store.bookings.length, 9);
   assert.equal(store.listPrinters('2026-11-09').map((p) => p.bookings.length).reduce((a,b) => a+b, 0), 9);
 });
+test('marks the 120-page Hari job as jammed, matching the incident in the paper', () => {
+  const store = new BookingStore();
+  const jammed = store.bookings.find((booking) => booking.rollNumber === '23CE033');
+  assert.equal(jammed.pages, 120);
+  assert.equal(jammed.status, 'JAMMED');
+});
 test('creates a booking and calculates the expected result', () => {
   const store = new BookingStore({ seed: false });
   const result = store.create(booking());

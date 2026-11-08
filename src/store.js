@@ -7,8 +7,8 @@ const sampleRows = [
   ['P1', '23CS077', 'Rohit', '08:03', 300, 1, 'BW', 'SIMPLEX', 'NONE', 'QUEUED', 'UNPAID'],
   ['P1', '23CS045', 'Meera K', '08:15', 62, 1, 'BW', 'DUPLEX', 'SPIRAL', 'QUEUED', 'UNPAID'],
   ['P1', '23ME020', 'Arjun', '08:20', 12, 5, 'BW', 'SIMPLEX', 'NONE', 'QUEUED', 'UNPAID'],
-  ['P2', '23EC112', 'Meera K', '08:00', 30, 1, 'BW', 'SIMPLEX', 'SPIRAL', 'JAMMED', 'UNPAID'],
-  ['P2', '23CE033', 'Hari', '08:10', 120, 1, 'BW', 'SIMPLEX', 'NONE', 'QUEUED', 'UNPAID'],
+  ['P2', '23EC112', 'Meera K', '08:00', 30, 1, 'BW', 'SIMPLEX', 'SPIRAL', 'QUEUED', 'UNPAID'],
+  ['P2', '23CE033', 'Hari', '08:10', 120, 1, 'BW', 'SIMPLEX', 'NONE', 'JAMMED', 'UNPAID'],
   ['P2', '23ME020', 'Arjun', '08:21', 14, 5, 'BW', 'SIMPLEX', 'NONE', 'QUEUED', 'UNPAID'],
   ['P3', '23CS101', 'Fathima', '08:00', 4, 1, 'COLOUR', 'SIMPLEX', 'NONE', 'QUEUED', 'UNPAID'],
   ['P3', '22EE009', 'Nikhil', '08:03', 2, 3, 'COLOUR', 'SIMPLEX', 'NONE', 'QUEUED', 'UNPAID']
