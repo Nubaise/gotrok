@@ -22,6 +22,12 @@ test('marks the 120-page Hari job as jammed, matching the incident in the paper'
   assert.equal(jammed.pages, 120);
   assert.equal(jammed.status, 'JAMMED');
 });
+test('keeps Divya’s printed counter bundle marked unpaid as shown on the sheet', () => {
+  const store = new BookingStore();
+  const divya = store.bookings.find((booking) => booking.rollNumber === '23CS018');
+  assert.equal(divya.status, 'READY');
+  assert.equal(divya.paymentStatus, 'UNPAID');
+});
 test('creates a booking and calculates the expected result', () => {
   const store = new BookingStore({ seed: false });
   const result = store.create(booking());

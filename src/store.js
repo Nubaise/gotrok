@@ -3,7 +3,7 @@ import { PRINTERS, validateBookingInput, intervalsOverlap, BookingError } from '
 
 const sampleDate = '2026-11-09';
 const sampleRows = [
-  ['P1', '23CS018', 'Divya', '08:00', 25, 1, 'BW', 'SIMPLEX', 'NONE', 'READY', 'PAID'],
+  ['P1', '23CS018', 'Divya', '08:00', 25, 1, 'BW', 'SIMPLEX', 'NONE', 'READY', 'UNPAID'],
   ['P1', '23CS077', 'Rohit', '08:03', 300, 1, 'BW', 'SIMPLEX', 'NONE', 'QUEUED', 'UNPAID'],
   ['P1', '23CS045', 'Meera K', '08:15', 62, 1, 'BW', 'DUPLEX', 'SPIRAL', 'QUEUED', 'UNPAID'],
   ['P1', '23ME020', 'Arjun', '08:20', 12, 5, 'BW', 'SIMPLEX', 'NONE', 'QUEUED', 'UNPAID'],
